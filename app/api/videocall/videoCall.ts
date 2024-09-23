@@ -1,4 +1,4 @@
-import AgoraRTC, { IAgoraRTCClient, ILocalVideoTrack, ILocalAudioTrack } from 'agora-rtc-sdk-ng'
+import AgoraRTC, { IAgoraRTCClient, ILocalVideoTrack, ILocalAudioTrack, IRemoteVideoTrack, IRemoteAudioTrack, IAgoraRTCRemoteUser } from 'agora-rtc-sdk-ng';
 
 interface JoinConfig {
   appId: string;
@@ -11,7 +11,7 @@ export class VideoCall {
   private client: IAgoraRTCClient;
   private localAudioTrack: ILocalAudioTrack | null = null;
   private localVideoTrack: ILocalVideoTrack | null = null;
-  private remoteUsers: Record<string, any> = {};
+  private remoteUsers: Record<string, { videoTrack?: IRemoteVideoTrack; audioTrack?: IRemoteAudioTrack }> = {};
 
   constructor() {
     this.client = AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' });
@@ -19,17 +19,17 @@ export class VideoCall {
   }
 
   private setupEventListeners() {
-    this.client.on('user-published', async (user, mediaType) => {
+    this.client.on('user-published', async (user: IAgoraRTCRemoteUser, mediaType: 'audio' | 'video') => {
       if (mediaType === 'audio' || mediaType === 'video') {
         await this.subscribe(user, mediaType);
       }
     });
 
-    this.client.on('user-unpublished', (user) => {
+    this.client.on('user-unpublished', (user: IAgoraRTCRemoteUser) => {
       this.removeRemoteUser(user.uid.toString());
     });
 
-    this.client.on('user-left', (user) => {
+    this.client.on('user-left', (user: IAgoraRTCRemoteUser) => {
       this.removeRemoteUser(user.uid.toString());
     });
   }
@@ -66,19 +66,17 @@ export class VideoCall {
     }
   }
 
-  private async subscribe(user: any, mediaType: 'video' | 'audio') {
+  private async subscribe(user: IAgoraRTCRemoteUser, mediaType: 'video' | 'audio') {
     await this.client.subscribe(user, mediaType);
 
-    if (mediaType === 'video') {
-      const remoteVideoTrack = user.videoTrack;
-      this.remoteUsers[user.uid] = remoteVideoTrack;
+    if (mediaType === 'video' && user.videoTrack) {
+      this.remoteUsers[user.uid.toString()] = { videoTrack: user.videoTrack };
       this.playRemoteVideo(user.uid.toString());
     }
 
-    if (mediaType === 'audio') {
-      const remoteAudioTrack = user.audioTrack;
-      this.remoteUsers[user.uid] = remoteAudioTrack;
-      remoteAudioTrack.play();
+    if (mediaType === 'audio' && user.audioTrack) {
+      this.remoteUsers[user.uid.toString()] = { audioTrack: user.audioTrack };
+      user.audioTrack.play();
     }
   }
 
@@ -94,7 +92,10 @@ export class VideoCall {
       document.getElementById('remote-container')?.appendChild(container);
     }
 
-    this.remoteUsers[uid].play(containerId);
+    const remoteVideoTrack = this.remoteUsers[uid]?.videoTrack;
+    if (remoteVideoTrack) {
+      remoteVideoTrack.play(containerId);
+    }
   }
 
   private removeRemoteUser(uid: string) {
@@ -108,14 +109,22 @@ export class VideoCall {
 
   toggleMicrophone(mute: boolean) {
     if (this.localAudioTrack) {
-      mute ? this.localAudioTrack.setEnabled(false) : this.localAudioTrack.setEnabled(true);
+      if (mute) {
+        this.localAudioTrack.setEnabled(false);
+      } else {
+        this.localAudioTrack.setEnabled(true);
+      }
       console.log(`Microphone is now ${mute ? 'muted' : 'unmuted'}`);
     }
   }
 
   toggleCamera(off: boolean) {
     if (this.localVideoTrack) {
-      off ? this.localVideoTrack.setEnabled(false) : this.localVideoTrack.setEnabled(true);
+      if (off) {
+        this.localVideoTrack.setEnabled(false);
+      } else {
+        this.localVideoTrack.setEnabled(true);
+      }
       console.log(`Camera is now ${off ? 'off' : 'on'}`);
     }
   }
