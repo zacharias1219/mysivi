@@ -20,11 +20,9 @@ const ConnectingHuman: NextPage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [videoCall, setVideoCall] = useState<VideoCall | null>(null);
   const [question, setQuestion] = useState("");
-  const [questionIndex, setQuestionIndex] = useState(0);
 
   const generateQuestion = () => {
     const randomIndex = Math.floor(Math.random() * questionBank.length);
-    setQuestionIndex(randomIndex);
     setQuestion(questionBank[randomIndex]);
   };
 
