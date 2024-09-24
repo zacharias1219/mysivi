@@ -1,27 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Product+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+@font-face {
+  font-family: "Linotte-Bold";
+  src: url("/☞Linotte-Bold 400.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Linotte-Heavy";
+  src: url("/☞Linotte-Heavy 400.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Product Sans Medium";
+  src: url("/Product Sans Medium 500.ttf");
+  font-weight: 400;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: #171717;
-  --foreground: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply leading-[normal] m-0;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+*,
+::before,
+::after {
+  border-width: 0;
 }
