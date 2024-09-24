@@ -10,7 +10,7 @@ const FrameComponent1: NextPage<FrameComponent1Type> = ({ className = "" }) => {
     <div
       className={`flex flex-col items-center justify-center relative gap-[13px] text-center text-lgi text-pri-base font-product-sans-medium ${className}`}
     >
-      <div className="w-[159px] rounded-32xl-9 bg-linen h-[45px] flex flex-row items-center justify-center py-[14.5px] px-[12.1px] box-border gap-[12.1px] z-[0]">
+      <div className="w-[159px] rounded-3xl bg-linen h-[45px] flex flex-row items-center justify-center py-[14.5px] px-[12.1px] box-border gap-[12.1px] z-[0]">
         <Image
           className="w-[24.2px] relative h-[24.2px] overflow-hidden shrink-0 hidden"
           alt=""

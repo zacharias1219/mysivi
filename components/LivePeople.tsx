@@ -3,7 +3,7 @@ import React from 'react';
 
 const LivePeople = () => {
     return (
-      <div className="bg-orange-400 text-black font-nunito rounded-lg p-4">
+      <div className="bg-orange-400 text-black font-nunito rounded-xl p-4 w-[600px] h-[400px]">
         <h2 className="text-4xl font-bold mb-4">Live People</h2>
         <p className="text-md mb-4">Currently active persons</p>
         {Array(2)

@@ -9,7 +9,7 @@ export type ConnectingHumanType = object;
 
 const ConnectingHuman: NextPage<ConnectingHumanType> = () => {
   const router = useRouter();
-  const [timer, setTimer] = useState(8);
+  const [timer, setTimer] = useState(5);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -26,7 +26,7 @@ const ConnectingHuman: NextPage<ConnectingHumanType> = () => {
 
   return (
     <div
-      className={`w-[1440px] bg-background max-w-full h-max overflow-hidden text-center text-5xl text-pri-100 font-linotte-bold`}
+      className={`w-[1440px] bg-white max-w-full h-[800px] overflow-hidden text-center text-5xl text-pri-100 font-linotte-bold`}
     >
       <div className="w-full h-full flex justify-center items-center">
         <div className="absolute top-[-58px] left-[-311px] rounded-[50%] bg-gainsboro-200 w-[1122px] h-[1122px]" />
@@ -35,8 +35,8 @@ const ConnectingHuman: NextPage<ConnectingHumanType> = () => {
       </div>
       <Image
         src="/frame-1618868427.svg"
-        alt="Frame"
         className="absolute top-[153px] left-[86px] w-[569px] h-[575px]"
+        alt=""
         width={569}
         height={575}
       />

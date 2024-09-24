@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { VideoCall } from "../../../api/videocall/videoCall";
 import Image from "next/image";
 
-const ConnectingHuman3: NextPage = () => {
+const ConnectingHuman: NextPage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [videoCall, setVideoCall] = useState<VideoCall | null>(null);
 
@@ -35,9 +35,9 @@ const ConnectingHuman3: NextPage = () => {
   };
 
   return (
-    <div className="w-full relative bg-background h-[1264px] overflow-hidden text-center text-5xl text-pri-100 font-product-sans">
-      <div className="absolute h-[calc(100%_-_125px)] top-[86px] bottom-[39px] left-[16px] rounded-t-11xl rounded-b-none bg-white w-[1402px] overflow-hidden text-xs text-pri-60">
-        <div className="absolute top-[11px] left-[19px] rounded-11xl bg-pri-10 w-[1354px] flex flex-row items-center justify-start py-1 pl-[7px] pr-[18px] box-border gap-2 text-left">
+    <div className="w-full relative bg-background h-[750px] overflow-hidden text-center text-5xl text-pri-100 font-nunito">
+      <div className="absolute h-[calc(100%_-_125px)] top-[86px] bottom-[39px] left-[40px] rounded-t-11xl rounded-b-none bg-white w-[1402px] overflow-hidden text-xs text-pri-60">
+        <div className="absolute top-[15px] left-[19px] rounded-lg bg-pri-10 w-[1354px] flex flex-row items-center justify-start py-1 pl-[7px] pr-[18px] box-border gap-2 text-left">
           <div className="w-[21px] relative rounded-[50%] bg-gainsboro-100 h-[21px]" />
           <b className="relative">Bot is Introducing</b>
         </div>
@@ -72,7 +72,7 @@ const ConnectingHuman3: NextPage = () => {
             <span> period.</span>
           </div>
         </div>
-        <div className="absolute top-[451px] left-[calc(50%_-_122px)] rounded-15xl bg-pri-10 flex flex-row items-center justify-center py-2 px-[17px] gap-2.5 text-lgi text-pri-50 font-product-sans-medium">
+        <div className="absolute top-[400px] left-[calc(50%-100px)] rounded-2xl bg-pri-10 flex flex-row items-center justify-center py-2 px-[17px] gap-2.5 text-lgi text-pri-50 font-product-sans-medium">
           <div className="relative">Regenerate question</div>
           <Image
             className="w-6 relative h-6"
@@ -103,4 +103,4 @@ const ConnectingHuman3: NextPage = () => {
   );
 };
 
-export default ConnectingHuman3;
+export default ConnectingHuman;

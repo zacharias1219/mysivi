@@ -30,7 +30,7 @@ const GroupComponent: NextPage<GroupComponentType> = ({
     <div
       className={`w-[447.2px] relative h-[190.3px] text-center rounded-xltext-base text-pri-90 font-product-sans ${className}`}
     >
-      <div className="absolute top-[0px] left-[0px] rounded-mid-4 bg-whitesmoke-300 w-[447.2px] h-[190.3px]" />
+      <div className="absolute top-[0px] left-[0px] rounded-3xl bg-whitesmoke-300 w-[447.2px] h-[190.3px]" />
       <Image
         className="absolute top-[35.6px] left-[164.6px] rounded-[50%] w-[118.7px] h-[118.7px] object-cover"
         alt=""
