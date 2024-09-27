@@ -11,6 +11,8 @@
   "dependencies": {
     "@google-cloud/speech": "^6.7.0",
     "agora-rtc-sdk-ng": "^4.22.1",
+    "buffer": "^6.0.3",
+    "dotenv": "^16.4.5",
     "firebase": "^10.13.2",
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.1",

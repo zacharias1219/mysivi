@@ -23,7 +23,6 @@ const FrameComponent2: NextPage<FrameComponent2Type> = ({ className = "", onTogg
             height={33}
           />
         </div>
-        <div className="relative">{isMuted ? "Unmute" : "Mute"}</div>
       </div>
       <div className="flex flex-col items-center justify-center gap-1">
         <Link href="/">
@@ -31,7 +30,6 @@ const FrameComponent2: NextPage<FrameComponent2Type> = ({ className = "", onTogg
           <Image className="w-[33px] relative h-[33px]" alt="End Call" src="/call.svg" width={33} height={33} />
         </div>
         </Link>
-        <div className="relative">End Call</div>
       </div>
     </div>
   );
