@@ -12,8 +12,8 @@ const YourFriends = () => {
           src="/illustrationvi-2@2x.png"
           alt="Sad face avatar"
           className="mb-4 h-52"
-          width={180}
-          height={135}
+          width={200}
+          height={150}
         />
       </div>
     );

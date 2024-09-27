@@ -15,7 +15,7 @@ const App = () => {
             Select Mode
           </button>
         </div>
-        <div className="flex items-center justify-center flex-row md:flex-col font-nunito space-x-40 md:space-y-0 md:space-x-4">
+        <div className="flex items-center justify-center flex-row lg:space-x-20 md:flex-col font-nunito space-x-40 md:space-y-0 md:space-x-4">
           <Type heading="Talk with a Person" description="AI Bot As Moderator" link="/channel" img="/rectangle-1@2x.png"/>
           <Type heading="Talk with AI Bot" description="AI bot will roleplay and talk with you." link="" img="/Robot-Emoji.png"/>
         </div>

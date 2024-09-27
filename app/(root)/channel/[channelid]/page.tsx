@@ -55,7 +55,7 @@ const ConnectingHuman: NextPage = () => {
 
   return (
     <div className="w-full relative bg-background h-[750px] overflow-hidden text-center text-5xl text-pri-100 font-nunito">
-      <div className="absolute h-[calc(100%_-_125px)] top-[25px] bottom-[39px] left-[40px] rounded-3xl rounded-b-none bg-white w-[1402px] overflow-hidden text-xs text-pri-60">
+      <div className="absolute h-[calc(100%_-_125px)] top-[25px] bottom-[39px] left-[225px] rounded-3xl rounded-b-none bg-white w-[1402px] overflow-hidden text-xs text-pri-60">
         <div className="absolute top-[15px] left-[19px] rounded-lg bg-pri-10 w-[1354px] flex flex-row items-center justify-start py-1 pl-[7px] pr-[18px] box-border gap-2 text-left">
           <div className="w-[21px] relative rounded-[50%] bg-gainsboro-100 h-[21px]" />
           <b className="relative">Bot is Introducing</b>
