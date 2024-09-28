@@ -5,7 +5,8 @@ import FrameComponent1 from "@/components/Frame1";
 import FrameComponent2 from "@/components/Frame2";
 import { useState, useEffect } from "react";
 import { VideoCall } from "../../../api/videocall/videoCall";
-import { transcribeAndChat } from "../../../api/openai/Whisper"
+import { startAudioRecording, stopAudioRecording } from "@/components/audioRecording";
+import { transcribeAndChat } from "../../../api/transcription/openaiTranscription";
 import Image from "next/image";
 
 const questionBank = [
@@ -23,6 +24,15 @@ const ConnectingHuman: NextPage = () => {
   const [question, setQuestion] = useState("");
   const [recorder, setRecorder] = useState<MediaRecorder | null>(null);
   const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
+
+  const questionBank = [
+    "What is your favorite hobby?",
+    "What do you like to do in your free time?",
+    "What is your favorite book?",
+    "What is your favorite movie?",
+    "What is your favorite type of music?",
+    // Add more questions to the bank here
+  ];
 
   const generateQuestion = () => {
     const randomIndex = Math.floor(Math.random() * questionBank.length);
@@ -126,12 +136,12 @@ const ConnectingHuman: NextPage = () => {
           </div>
         </div>
         
-        <div className="absolute top-[314px] left-[calc(50%_-_205px)] rounded-3xl bg-pri-base flex flex-row items-center justify-center p-4 text-17xl text-background">
-          <b className="w-[379px] text-2xl relative inline-block shrink-0">
+        <div className="absolute top-[314px] left-[calc(50%_-_175px)] rounded-3xl bg-pri-base flex flex-row items-center justify-center p-4 text-17xl text-background">
+          <b className="w-[320px] text-2xl relative inline-block shrink-0">
             {question}
           </b>
         </div>
-        <div onClick={generateQuestion} className="absolute top-[400px] left-[calc(50%-100px)] rounded-2xl bg-pri-10 flex flex-row items-center justify-center py-2 px-[17px] gap-2.5 text-lgi text-pri-90 hover:bg-pri-50 font-product-sans-medium">
+        <div onClick={generateQuestion} className="absolute top-[425px] left-[calc(50%-90px)] rounded-2xl bg-pri-10 flex flex-row items-center justify-center py-2 px-[17px] gap-2.5 text-lgi text-pri-90 hover:bg-pri-50 font-product-sans-medium">
           <div className="relative">Regenerate question</div>
           <Image
             className="w-6 relative h-6"

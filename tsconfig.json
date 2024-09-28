@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/sign-in/page.jsx", "app/sign-up/page.jsx", "app/api/openai/openai.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/sign-in/page.jsx", "app/sign-up/page.jsx", "app/api/transcription/openai.js"],
   "exclude": ["node_modules"]
 }
