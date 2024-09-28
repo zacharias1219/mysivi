@@ -6,7 +6,7 @@ import FrameComponent2 from "@/components/Frame2";
 import { useState, useEffect } from "react";
 import { VideoCall } from "../../../api/videocall/videoCall";
 import { startAudioRecording, stopAudioRecording } from "@/components/audioRecording";
-import { transcribeAndChat } from "../../../api/transcription/openaiTranscription";
+import { transcribeAndChat } from "../../../api/transcription/Whisper";
 import Image from "next/image";
 
 const questionBank = [
