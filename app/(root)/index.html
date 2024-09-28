@@ -1,0 +1,91 @@
+<html></html>
+<head>
+    <title>MySivi</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+            return (
+                <div className="p-4">
+                    <header className="flex justify-between items-center mb-8">
+                        <div className="text-2xl font-bold">Logo here</div>
+                        <div className="flex items-center space-x-1">
+                            <div className="space-x-2">
+                                <span className="text-yellow-500"><i className="fas fa-hand-paper"></i></span>
+                                <span>Hello John Doe!</span>
+                            </div>
+                            <img src="https://placehold.co/40x40" alt="User avatar" className="rounded-full w-10 h-10"/>
+                        </div>
+                    </header>
+                    <main>
+                        <div className="bg-blue-800 text-black rounded-lg p-8 mb-8">
+                            <div className="flex flex-col md:flex-row bg-white rounded-2xl p-4 justify-between items-center mb-8">
+                                <h1 className="text-2xl font-bold mb-4 md:mb-0">Welcome to MySivi</h1>
+                                <button className="bg-white text-blue-900 rounded-full px-4 py-2">Select Mode</button>
+                            </div>
+                            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                                <div className="bg-white text-center rounded-3xl p-4 flex-1">
+                                    <img src="https://placehold.co/100x100" alt="Person avatar" className="mx-auto mb-4"/>
+                                    <h2 className="text-2xl font-bold mb-2">Talk With A Person (LIVE)</h2>
+                                    <p className="text-gray-500 mb-4">AI Bot As Moderator</p>
+                                     <a href="/channel">
+                                    <button className="bg-blue-900 text-white rounded-full px-6 py-2">Start ➔</button>
+                                    </a>
+                                </div>
+                                <div className="bg-white text-center rounded-3xl p-4 flex-1">
+                                    <img src="https://placehold.co/100x100" alt="AI Bot avatar" className="mx-auto mb-4"/>
+                                    <h2 className="text-2xl font-bold mb-2">Talk With AI Bot</h2>
+                                    <p className="text-gray-500 mb-4">AI bot will roleplay and talk with...</p>
+                                    <button className="bg-blue-900 text-white rounded-full px-6 py-2">Start ➔</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="bg-orange-400 text-black rounded-lg p-4">
+                                <h2 className="text-3xl font-bold mb-4">Live People</h2>
+                                <p className="text-sm mb-4">Currently active persons</p>
+                                {Array(5).fill().map((_, i) => (
+                                    <div key={i} className="flex justify-between items-center text-white bg-blue-800 rounded-full px-4 py-2 mb-2">
+                                        <div className="flex items-center space-x-2">
+                                            <img src="https://placehold.co/40x40" alt="Person avatar" className="rounded-full w-8 h-8"/>
+                                            <div>
+                                                <p className="font-bold">Bhavesh</p>
+                                                <p className="text-sm">Not friends yet</p>
+                                            </div>
+                                        </div>
+                                        <div className="text-right flex md:gap-10 lg:gap-20">
+                                            <p className="text-sm">Total Active Hours: 364 hours</p>
+                                            <button className="bg-blue-900 text-white rounded-full px-4 py-1">Start ➔</button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="bg-orange-400 text-black rounded-lg p-4 flex flex-row items-center justify-center">
+                                    <div className="flex flex-col items-start gap-y-20">
+                                        <h2 className="text-3xl font-bold mb-4 ">Your Friends</h2>  
+                                        <p className="text-4xl">You have No friends yet</p>
+                                    </div>
+                                <img src="https://placehold.co/100x100" alt="Sad face avatar" className="mb-4"/>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
